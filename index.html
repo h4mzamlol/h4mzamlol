@@ -23,7 +23,6 @@
             padding: 25px;
             text-align: center;
             margin-bottom: 40px;
-            /* Cuts the header box into a jagged trapezoid shape */
             clip-path: polygon(2% 0%, 98% 5%, 100% 85%, 0% 100%);
             border: 3px solid #ff00ff;
             transform: rotate(-0.5deg);
@@ -33,7 +32,7 @@
             font-size: 3rem;
             margin: 0;
             color: #fff;
-            text-shadow: 4px 4px #ff0000, -3px -3px #0000ff; /* Cheap 3D Glitch Effect */
+            text-shadow: 4px 4px #ff0000, -3px -3px #0000ff;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -64,7 +63,7 @@
             }
         }
 
-        /* SHARD 1: Music Block (Slanted heavily on the right bottom) */
+        /* SHARD 1: Music Block */
         .shard-music {
             background: rgba(13, 13, 13, 0.95);
             padding: 30px;
@@ -72,19 +71,30 @@
             border-left: 4px solid #ff00ff;
             border-top: 2px solid #ff00ff;
             box-shadow: -8px 8px 0px rgba(255, 0, 255, 0.3);
+            margin-bottom: 30px;
         }
 
-        /* SHARD 2: Quiz Block (Cut like a jagged lightning shard) */
+        /* SHARD 2: Bio Block */
+        .shard-bio {
+            background: rgba(15, 15, 15, 0.95);
+            padding: 30px;
+            clip-path: polygon(2% 0%, 98% 4%, 100% 96%, 0% 100%);
+            border-right: 4px solid #ff00ff;
+            border-top: 2px solid #00ffff;
+            box-shadow: 8px -8px 0px rgba(0, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        /* SHARD 3: Quiz Block */
         .shard-quiz {
             background: rgba(10, 10, 10, 0.97);
             padding: 30px;
-            margin-top: 30px;
             clip-path: polygon(3% 0%, 97% 4%, 100% 97%, 0% 92%);
             border: 2px dashed #00ffff;
             box-shadow: 8px 8px 0px rgba(0, 255, 255, 0.2);
         }
 
-        /* SHARD 3: Links Block (Ripped geometric flyer look) */
+        /* SHARD 4: Links Block */
         .shard-links {
             background: rgba(15, 15, 15, 0.95);
             padding: 35px 25px;
@@ -191,7 +201,7 @@
 <body>
 
     <!-- FLOATING JAGGED QUIZ BUTTON -->
-    <button class="floating-quiz-trigger blink" onclick="scrollToQuiz()">⚡ QUIZ ⚡</button>
+    <button class="floating-quiz-trigger blink" onclick="scrollToQuiz()">⚡ RUN QUIZ ⚡</button>
 
     <header>
         <h1>ARTIST_PROFILE_v1.exe</h1>
@@ -200,55 +210,84 @@
 
     <div class="grid-container">
         
-        <!-- LEFT COLUMN: MUSIC & QUIZ SHARDS -->
+        <!-- LEFT COLUMN: MUSIC, BIO, & QUIZ -->
         <div class="grid-column-left">
             
             <!-- MUSIC SHARD -->
             <div class="shard-music">
-                <h2 class="slat-title">LATEST_TRAX</h2>
-                <p style="margin-top: 15px;">raw mix down. turn it up until the speakers blow.</p>
+                <h2 class="slat-title"></h2>
+                <p style="margin-top: 15px;">my music and lastest songs.</p>
                 
                 <!-- PASTE YOUR SOUNDCLOUD EMBED CODE DIRECTLY BELOW THIS LINE -->
                 <div style="background: #1a1a1a; border: 2px dashed #00ff00; padding: 40px 10px; text-align: center; margin-top: 20px; clip-path: polygon(1% 4%, 98% 0%, 100% 94%, 2% 100%);">
-                    <p style="color: #555; margin: 0 0 10px 0;">[ REPLACE THIS BOX WITH YOUR SOUNDCLOUD EMBED IFRAME ]</p>
+                    <p style="color: #555; margin: 0 0 10px 0;">[ https://open.spotify.com/artist/1eQCOV4rJCSPWRJTcAGUz0?si=gvk8v5sVRxuG1f2qi5NWmQ ]</p>
                     <span style="color: #ff00ff; font-weight: bold;"><< MUSIC PLAYER HERE >></span>
-                </div>
+                </div> https://open.spotify.com/artist/1eQCOV4rJCSPWRJTcAGUz0?si=gvk8v5sVRxuG1f2qi5NWmQ
                 <!-- PASTE YOUR SOUNDCLOUD EMBED CODE DIRECTLY ABOVE THIS LINE -->
-                
-                <p style="margin-top: 30px;">fueled by cheap gear and bad decisions. full project dropping whenever i feel like finishing it.</p>
+            </div>
+
+            <!-- BIO SHARD -->
+            <div class="shard-bio">
+                <h2 class="slat-title">ARTIST_BIO</h2>
+                <p style="margin-top: 15px; line-height: 1.6; color: #fff;">
+                    [ PUNK / EMO / UNDERGROUND ARTIST PROFILE ]
+                </p>
+                <p style="line-height: 1.6;">
+                    yo so im just gonna explain who i am and why i do what i do, so my artist name is h4mzam, im an artist from canada,
+                    and ive been making music for 2 years,
+                    why do i make music?
+                    well ive always loved music, and i love being creative and busy with music,
+                    its like a natural talent i grew,
+                    i make music for the people who just love music,
+                    and love the style of it, the actual voice, like soul, and yea thats basically it.
+                </p>
             </div>
 
             <!-- QUIZ SHARD -->
             <div id="quiz-section" class="shard-quiz">
-                <h2 class="slat-title">VIBE_CHECK.exe</h2>
+                <h2 class="slat-title">SYSTEM_DIAGNOSTIC</h2>
                 
                 <div id="quiz-container" style="margin-top: 15px;">
+                    
                     <!-- Question 1 -->
                     <div id="q1" class="quiz-step">
-                        <p style="font-weight: bold; color: #fff;">1. WHAT IS YOUR PREFERRED LISTENING ENVIRONMENT?</p>
-                        <button class="quiz-btn" onclick="nextQuestion('q1', 'q2', 1)">A) A dark room with max volume speakers blowing out.</button>
-                        <button class="quiz-btn" onclick="nextQuestion('q1', 'q2', 2)">B) Wandering the streets at 2 AM with low-quality earbuds.</button>
+                        <p style="font-weight: bold; color: #fff;">1. [ what genres does h4mzam do ]</p>
+                        <button class="quiz-btn" onclick="handleAnswer('q1', 'q2', true)">A) [ hyperpop, indie, alt rock, shoegaze. ]</button>
+                        <button class="quiz-btn" onclick="handleAnswer('q1', 'q2', false)">B) [ country, indie, pop. ]</button>
+                        <button class="quiz-btn" onclick="handleAnswer('q1', 'q2', false)">C) [ jazz  ]</button>
                     </div>
 
                     <!-- Question 2 -->
                     <div id="q2" class="quiz-step" style="display:none;">
-                        <p style="font-weight: bold; color: #fff;">2. CHOOSE A VISUAL AESTHETIC:</p>
-                        <button class="quiz-btn" onclick="nextQuestion('q2', 'q3', 1)">A) Static CRT monitors, glitchy text, raw punk flyers.</button>
-                        <button class="quiz-btn" onclick="nextQuestion('q2', 'q3', 2)">B) Sped-up underground music videos with heavy saturation.</button>
+                        <p style="font-weight: bold; color: #fff;">2. [ why do we listen to music ]</p>
+                        <!-- Every choice calls an alert and passes 'true' to seamlessly advance to q3 -->
+                        <button class="quiz-btn" onclick="alert('all of them were correct!!!'); handleAnswer('q2', 'q3', true)">A) [ to escape reality ]</button>
+                        <button class="quiz-btn" onclick="alert('all of them were correct!!!'); handleAnswer('q2', 'q3', true)">B) [ because we love it ]</button>
+                        <button class="quiz-btn" onclick="alert('all of them were correct!!!'); handleAnswer('q2', 'q3', true)">C) [ pleasure ]</button>
                     </div>
 
                     <!-- Question 3 -->
                     <div id="q3" class="quiz-step" style="display:none;">
-                        <p style="font-weight: bold; color: #fff;">3. HOW DO YOU HANDLE COGNITIVE OVERLOAD OR STRESS?</p>
-                        <button class="quiz-btn" onclick="showResult(1)">A) Crank up the distortion and lean directly into the chaos.</button>
-                        <button class="quiz-btn" onclick="showResult(2)">B) Put on a raw, melodic loop and just zone out completely.</button>
+                        <p style="font-weight: bold; color: #fff;">3. [ who's the best artist? ]</p>
+                        <button class="quiz-btn" onclick="handleAnswer('q3', 'quiz-result', true)">A) [ h4mzam ]</button>
+                        <button class="quiz-btn" onclick="handleAnswer('q3', 'quiz-result', true)">B) [ h4mzam ]</button>
+                        <button class="quiz-btn" onclick="handleAnswer('q3', 'quiz-result', true)">C) [ h4mzam ]</button>
+                    </div>
+
+                    <!-- TRY AGAIN SCREEN (Triggered dynamically on wrong answer) -->
+                    <div id="quiz-error" class="quiz-step" style="display:none; text-align: center;">
+                        <p class="blink" style="font-size: 1.5rem; color: #ff0000;">!!! ACCESS DENIED !!!</p>
+                        <p style="color: #fff; margin: 20px 0;">lets try again</p>
+                        <button class="quiz-btn" style="background: #ffff00; color: #000; text-align: center; font-weight: bold;" onclick="retryQuestion()">RE-ATTEMPT SYSTEM QUESTION</button>
                     </div>
 
                     <!-- Results Display Zone -->
                     <div id="quiz-result" class="quiz-step" style="display:none; text-align: center;">
-                        <p class="blink" style="font-size: 1.5rem; color: #ffff00;">--- DIAGNOSIS COMPLETE ---</p>
-                        <p id="result-text" style="color: #fff; font-size: 1.2rem; margin: 20px 0; font-weight: bold; line-height: 1.6;"></p>
-                        <button class="quiz-btn" style="background: #ff00ff; color: #000; text-align: center; font-weight: bold;" onclick="resetQuiz()">RETAKE SYSTEM DIAGNOSTIC</button>
+                        <p class="blink" style="font-size: 1.5rem; color: #ffff00;">--- CORRECTTTT!!!!! ---</p>
+                        <p style="color: #fff; font-size: 1.2rem; margin: 20px 0; font-weight: bold; line-height: 1.6;">
+                            [ you've completed the quiz! now, what i want u to do, is listen to my music, h4mzam ON ALL PLATFORMSSSSS!!!!!! ]
+                        </p>
+                        <button class="quiz-btn" style="background: #ff00ff; color: #000; text-align: center; font-weight: bold;" onclick="resetQuiz()">REBOOT SYSTEM QUIZ</button>
                     </div>
                 </div>
             </div>
@@ -258,62 +297,65 @@
         <!-- RIGHT COLUMN: LINKS SHARD -->
         <div class="grid-column-right">
             <div class="shard-links">
-                <h2 class="slat-title">ENTER_VOID</h2>
-                <p style="margin-top: 15px;">stream / stalk / download:</p>
+                <h2 class="slat-title">socials</h2>
+                <p style="margin-top: 15px;">stream / download:</p>
                 
                 <div class="links-list">
-                    <!-- Replace the '#' symbols with your actual URLs -->
-                    <a href="#" target="_blank">[ SPOTIFY ]</a>
-                    <a href="#" target="_blank">[ SOUNDCLOUD ]</a>
-                    <a href="#" target="_blank">[ BANDCAMP ]</a>
-                    <a href="#" target="_blank">[ INSTAGRAM ]</a>
-                    <a href="#" target="_blank">[ YOUTUBE ]</a>
+                    <!-- Paste your profile links inside the href="..." quotes below -->
+                    <a href="https://open.spotify.com/artist/1eQCOV4rJCSPWRJTcAGUz0?si=ep3D-dteTIq_ZHV2R5SQSQ" target="_blank">[ SPOTIFY ]</a>
+                    <a href="www.youtube.com/@h4mzam" target="_blank">[ YOUTUBE ]</a>
+                    <a href="https://www.tiktok.com/@sigmachicken24" target="_blank">[ TIKTOK ]</a>
                 </div>
                 
                 <div style="border-top: 1px dashed #444; margin-top: 30px; padding-top: 15px; font-size: 0.8rem; color: #666; line-height: 1.4;">
                     <p>VISITOR COUNT: 0000421 (manipulated)</p>
-                    <p>OPTIMIZED FOR SCREEN RESOLUTIONS THAT DON'T EXIST ANYMORE</p>
+                    <p>.</p>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <marquee scrollamount="13">+++ NEW BEATS IN PRODUCTION +++ UNDERGROUND ONLY +++ NO CORPORATE CO-SIGNS +++ DO NOT TRUST THE SYSTEM +++</marquee>
+    <marquee scrollamount="13">+++ h4mzam holy shit +++ follow my socials and my spotify +++ hyp hyp hyp +++ lets get famous?? +++</marquee>
 
-    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <!-- h4mzam quiz  -->
     <script>
-        let tracker = [];
+        let currentStepId = '';
+        let nextStepId = '';
 
         function scrollToQuiz() {
             document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function nextQuestion(currentId, nextId, choiceValue) {
-            tracker.push(choiceValue);
-            document.getElementById(currentId).style.display = 'none';
-            document.getElementById(nextId).style.display = 'block';
-        }
-
-        function showResult(lastChoice) {
-            tracker.push(lastChoice);
-            document.getElementById('q3').style.display = 'none';
-            document.getElementById('quiz-result').style.display = 'block';
+        // Evaluates answers instantly without restarting the full quiz loop
+        function handleAnswer(current, next, isCorrect) {
+            currentStepId = current;
+            nextStepId = next;
             
-            let resultBox = document.getElementById('result-text');
-            let countA = tracker.filter(x => x === 1).length;
+            // Hide the active question element
+            document.getElementById(current).style.display = 'none';
             
-            if (countA >= 2) {
-                resultBox.innerHTML = "YOU ARE OUT OF CONTROL. You match the heavy, raw energy of the underground mixes. Go blast the top track on the player until your eardrums give out.";
+            if (isCorrect) {
+                // Advance seamlessly to the next block
+                document.getElementById(next).style.display = 'block';
             } else {
-                resultBox.innerHTML = "YOU ARE IN THE VOID. You belong to the fast, rhythmic, spaced-out melodic loops. Perfect for late-night scrolling or driving through empty streets.";
+                // Send them directly to the error screen
+                document.getElementById('quiz-error').style.display = 'block';
             }
         }
 
+        // Pulls them right back to the exact question they missed
+        function retryQuestion() {
+            document.getElementById('quiz-error').style.display = 'none';
+            document.getElementById(currentStepId).style.display = 'block';
+        }
+
+        // Resets the terminal grid back to full initialization
         function resetQuiz() {
-            tracker = [];
             document.getElementById('quiz-result').style.display = 'none';
             document.getElementById('q1').style.display = 'block';
+            currentStepId = '';
+            nextStepId = '';
         }
     </script>
 
