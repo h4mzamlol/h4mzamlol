@@ -3,361 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>!!! INDEPENDENT ARTIST UNDERGROUND !!!</title>
+    <title>ARTIST PROFILE</title>
     <style>
-        /* Chaotic Tiled Background Image */
+        /* Simple Dark Theme */
         body {
-            background-color: #000000;
-            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
-            background-repeat: repeat;
-            color: #00ff00; /* Neon Green Matrix Text */
+            background-color: #0b0b0b;
+            color: #ffffff;
             font-family: "Courier New", Courier, monospace;
-            padding: 30px 20px;
             margin: 0;
-            overflow-x: hidden;
+            padding: 40px 20px;
         }
 
-        /* Jagged Glitch Header */
+        /* Clean Centered Header */
         header {
-            background: rgba(20, 20, 20, 0.95);
-            padding: 25px;
             text-align: center;
-            margin-bottom: 40px;
-            clip-path: polygon(2% 0%, 98% 5%, 100% 85%, 0% 100%);
-            border: 3px solid #ff00ff;
-            transform: rotate(-0.5deg);
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #222;
         }
 
         h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #fff;
-            text-shadow: 4px 4px #ff0000, -3px -3px #0000ff;
-            text-transform: uppercase;
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
             letter-spacing: 2px;
+            color: #ff00ff; /* Solid Pink accent */
         }
 
-        .blink {
-            animation: blinker 0.6s linear infinite;
-            color: #ffff00;
-            font-weight: bold;
-            font-size: 1.1rem;
+        header p {
+            color: #888;
+            margin: 0;
+            font-size: 0.9rem;
         }
 
-        @keyframes blinker {
-            50% { opacity: 0; }
-        }
-
-        /* DIY Grid Layout */
-        .grid-container {
+        /* Standard 2-Column Grid Layout (No tilts) */
+        .main-layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
-            max-width: 1000px;
+            gap: 30px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
         @media (min-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1.8fr 1.2fr;
+            .main-layout {
+                grid-template-columns: 1.6fr 1.4fr;
             }
         }
 
-        /* SHARD 1: Music Block */
-        .shard-music {
-            background: rgba(13, 13, 13, 0.95);
+        /* Clean, Boxed Sections */
+        .section-box {
+            background-color: #121212;
+            border: 1px solid #222;
             padding: 30px;
-            clip-path: polygon(0% 2%, 100% 0%, 96% 94%, 3% 100%);
-            border-left: 4px solid #ff00ff;
-            border-top: 2px solid #ff00ff;
-            box-shadow: -8px 8px 0px rgba(255, 0, 255, 0.3);
-            margin-bottom: 30px;
+            border-radius: 4px;
         }
 
-        /* SHARD 2: Bio Block */
-        .shard-bio {
-            background: rgba(15, 15, 15, 0.95);
-            padding: 30px;
-            clip-path: polygon(2% 0%, 98% 4%, 100% 96%, 0% 100%);
-            border-right: 4px solid #ff00ff;
-            border-top: 2px solid #00ffff;
-            box-shadow: 8px -8px 0px rgba(0, 255, 255, 0.2);
-            margin-bottom: 30px;
-        }
-
-        /* SHARD 3: Quiz Block */
-        .shard-quiz {
-            background: rgba(10, 10, 10, 0.97);
-            padding: 30px;
-            clip-path: polygon(3% 0%, 97% 4%, 100% 97%, 0% 92%);
-            border: 2px dashed #00ffff;
-            box-shadow: 8px 8px 0px rgba(0, 255, 255, 0.2);
-        }
-
-        /* SHARD 4: Links Block */
-        .shard-links {
-            background: rgba(15, 15, 15, 0.95);
-            padding: 35px 25px;
-            clip-path: polygon(0% 0%, 94% 5%, 100% 100%, 4% 96%);
-            border-right: 4px solid #00ffff;
-            border-bottom: 3px solid #ff00ff;
-            box-shadow: 10px 5px 0px rgba(255, 0, 255, 0.2);
-        }
-
-        /* Title Slats inside Shards */
-        .slat-title {
-            background: #ff00ff;
-            color: #000;
-            padding: 6px 15px;
-            margin-top: 0;
-            font-size: 1.5rem;
-            display: inline-block;
-            transform: rotate(-1.5deg);
-            font-weight: 900;
-            clip-path: polygon(0 0, 95% 13%, 100% 100%, 5% 87%);
-        }
-
-        .shard-quiz .slat-title {
-            background: #00ffff;
-            transform: rotate(2deg);
-        }
-
-        /* Hyperlink Lists */
-        .links-list a {
-            display: block;
-            color: #00ffff;
-            text-decoration: underline;
-            font-size: 1.4rem;
-            margin: 18px 0;
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-
-        .links-list a:hover {
-            color: #fff;
-            background: #ff0000;
-            text-decoration: none;
-            transform: scale(1.05) rotate(-1deg);
-        }
-
-        /* Fixed Quiz Floating Button (Bottom Left) */
-        .floating-quiz-trigger {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 9999;
-            background: #00ffff;
-            color: #000;
-            border: 2px solid #fff;
-            font-family: "Courier New", Courier, monospace;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 12px 20px;
-            cursor: pointer;
-            box-shadow: 4px 4px 0px #ff00ff;
-            text-transform: uppercase;
-            clip-path: polygon(4% 0%, 100% 8%, 94% 100%, 0% 85%);
-        }
-        
-        .floating-quiz-trigger:hover {
-            background: #ff00ff;
-            color: #fff;
-            box-shadow: -4px 4px 0px #00ffff;
-        }
-
-        /* Quiz Choice Buttons */
-        .quiz-btn {
-            display: block;
-            width: 100%;
-            background: #111;
-            color: #00ff00;
-            border: 1px solid #00ff00;
-            font-family: "Courier New", Courier, monospace;
-            padding: 12px;
-            margin: 12px 0;
-            text-align: left;
-            cursor: pointer;
-            font-size: 1rem;
-            clip-path: polygon(0% 0%, 99% 4%, 100% 100%, 1% 95%);
-        }
-        .quiz-btn:hover {
-            background: #00ff00;
-            color: #000;
-            clip-path: polygon(1% 4%, 100% 0%, 98% 95%, 0% 100%);
-        }
-
-        /* Bottom Scrolling Marquee */
-        marquee {
-            background: #ffff00;
-            color: #000;
-            font-weight: bold;
-            padding: 6px;
-            margin-top: 50px;
+        .section-title {
             font-size: 1.3rem;
-            transform: rotate(0.5deg);
+            color: #00ffff; /* Solid Cyan accent */
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Clean Text Formatting */
+        p {
+            line-height: 1.6;
+            color: #ccc;
+            margin: 0 0 15px 0;
+        }
+
+        /* Navigation & Social Links */
+        .links-container a {
+            display: block;
+            color: #00ff00; /* Solid Green links */
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #222;
+            border-radius: 4px;
+            background-color: #161616;
+            transition: all 0.2s ease;
+        }
+
+        .links-container a:hover {
+            background-color: #222;
+            color: #fff;
+            border-color: #444;
+        }
+
+        /* Footer Info */
+        .stats-footer {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #222;
+            font-size: 0.8rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
 
-    <!-- FLOATING JAGGED QUIZ BUTTON -->
-    <button class="floating-quiz-trigger blink" onclick="scrollToQuiz()">⚡ RUN QUIZ ⚡</button>
-
     <header>
         <h1>ARTIST_PROFILE_v1.exe</h1>
-        <p class="blink">WARNING: HEAVY AUDIO INSIDE // DO NOT CLOSE THIS TAB</p>
+        <p>UNDERGROUND AUDIO PROTOCOL // ONLINE</p>
     </header>
 
-    <div class="grid-container">
+    <div class="main-layout">
         
-        <!-- LEFT COLUMN: MUSIC, BIO, & QUIZ -->
-        <div class="grid-column-left">
+        <!-- LEFT COLUMN: MUSIC PLAYER -->
+        <div class="section-box">
+            <h2 class="section-title">Latest Release</h2>
+            <p>Stream music and latest tracks directly below:</p>
             
-            <!-- MUSIC SHARD -->
-            <div class="shard-music">
-                <h2 class="slat-title"></h2>
-                <p style="margin-top: 15px;">my music and lastest songs.</p>
-                
-                <!-- PASTE YOUR SOUNDCLOUD EMBED CODE DIRECTLY BELOW THIS LINE -->
-                <div style="background: #1a1a1a; border: 2px dashed #00ff00; padding: 40px 10px; text-align: center; margin-top: 20px; clip-path: polygon(1% 4%, 98% 0%, 100% 94%, 2% 100%);">
-                    <p style="color: #555; margin: 0 0 10px 0;">[ https://open.spotify.com/artist/1eQCOV4rJCSPWRJTcAGUz0?si=gvk8v5sVRxuG1f2qi5NWmQ ]</p>
-                    <span style="color: #ff00ff; font-weight: bold;"><< MUSIC PLAYER HERE >></span>
-                </div> https://open.spotify.com/artist/1eQCOV4rJCSPWRJTcAGUz0?si=gvk8v5sVRxuG1f2qi5NWmQ
-                <!-- PASTE YOUR SOUNDCLOUD EMBED CODE DIRECTLY ABOVE THIS LINE -->
+            <!-- Clean Spotify Embed Player -->
+            <div style="margin-top: 20px;">
+                <iframe style="border-radius:12px" src="https://open-spotify-com.translate.goog/embed/artist/1eQCOV4rJCSPWRJTcAGUz0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
-
-            <!-- BIO SHARD -->
-            <div class="shard-bio">
-                <h2 class="slat-title">ARTIST_BIO</h2>
-                <p style="margin-top: 15px; line-height: 1.6; color: #fff;">
-                    [ PUNK / EMO / UNDERGROUND ARTIST PROFILE ]
-                </p>
-                <p style="line-height: 1.6;">
-                    yo so im just gonna explain who i am and why i do what i do, so my artist name is h4mzam, im an artist from canada,
-                    and ive been making music for 2 years,
-                    why do i make music?
-                    well ive always loved music, and i love being creative and busy with music,
-                    its like a natural talent i grew,
-                    i make music for the people who just love music,
-                    and love the style of it, the actual voice, like soul, and yea thats basically it.
-                </p>
-            </div>
-
-            <!-- QUIZ SHARD -->
-            <div id="quiz-section" class="shard-quiz">
-                <h2 class="slat-title">SYSTEM_DIAGNOSTIC</h2>
-                
-                <div id="quiz-container" style="margin-top: 15px;">
-                    
-                    <!-- Question 1 -->
-                    <div id="q1" class="quiz-step">
-                        <p style="font-weight: bold; color: #fff;">1. [ what genres does h4mzam do ]</p>
-                        <button class="quiz-btn" onclick="handleAnswer('q1', 'q2', true)">A) [ hyperpop, indie, alt rock, shoegaze. ]</button>
-                        <button class="quiz-btn" onclick="handleAnswer('q1', 'q2', false)">B) [ country, indie, pop. ]</button>
-                        <button class="quiz-btn" onclick="handleAnswer('q1', 'q2', false)">C) [ jazz  ]</button>
-                    </div>
-
-                    <!-- Question 2 -->
-                    <div id="q2" class="quiz-step" style="display:none;">
-                        <p style="font-weight: bold; color: #fff;">2. [ why do we listen to music ]</p>
-                        <!-- Every choice calls an alert and passes 'true' to seamlessly advance to q3 -->
-                        <button class="quiz-btn" onclick="alert('all of them were correct!!!'); handleAnswer('q2', 'q3', true)">A) [ to escape reality ]</button>
-                        <button class="quiz-btn" onclick="alert('all of them were correct!!!'); handleAnswer('q2', 'q3', true)">B) [ because we love it ]</button>
-                        <button class="quiz-btn" onclick="alert('all of them were correct!!!'); handleAnswer('q2', 'q3', true)">C) [ pleasure ]</button>
-                    </div>
-
-                    <!-- Question 3 -->
-                    <div id="q3" class="quiz-step" style="display:none;">
-                        <p style="font-weight: bold; color: #fff;">3. [ who's the best artist? ]</p>
-                        <button class="quiz-btn" onclick="handleAnswer('q3', 'quiz-result', true)">A) [ h4mzam ]</button>
-                        <button class="quiz-btn" onclick="handleAnswer('q3', 'quiz-result', true)">B) [ h4mzam ]</button>
-                        <button class="quiz-btn" onclick="handleAnswer('q3', 'quiz-result', true)">C) [ h4mzam ]</button>
-                    </div>
-
-                    <!-- TRY AGAIN SCREEN (Triggered dynamically on wrong answer) -->
-                    <div id="quiz-error" class="quiz-step" style="display:none; text-align: center;">
-                        <p class="blink" style="font-size: 1.5rem; color: #ff0000;">!!! ACCESS DENIED !!!</p>
-                        <p style="color: #fff; margin: 20px 0;">lets try again</p>
-                        <button class="quiz-btn" style="background: #ffff00; color: #000; text-align: center; font-weight: bold;" onclick="retryQuestion()">RE-ATTEMPT SYSTEM QUESTION</button>
-                    </div>
-
-                    <!-- Results Display Zone -->
-                    <div id="quiz-result" class="quiz-step" style="display:none; text-align: center;">
-                        <p class="blink" style="font-size: 1.5rem; color: #ffff00;">--- CORRECTTTT!!!!! ---</p>
-                        <p style="color: #fff; font-size: 1.2rem; margin: 20px 0; font-weight: bold; line-height: 1.6;">
-                            [ you've completed the quiz! now, what i want u to do, is listen to my music, h4mzam ON ALL PLATFORMSSSSS!!!!!! ]
-                        </p>
-                        <button class="quiz-btn" style="background: #ff00ff; color: #000; text-align: center; font-weight: bold;" onclick="resetQuiz()">REBOOT SYSTEM QUIZ</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- RIGHT COLUMN: LINKS SHARD -->
-        <div class="grid-column-right">
-            <div class="shard-links">
-                <h2 class="slat-title">socials</h2>
-                <p style="margin-top: 15px;">stream / download:</p>
-                
-                <div class="links-list">
-                    <!-- Paste your profile links inside the href="..." quotes below -->
-                    <a href="https://open.spotify.com/artist/1eQCOV4rJCSPWRJTcAGUz0?si=ep3D-dteTIq_ZHV2R5SQSQ" target="_blank">[ SPOTIFY ]</a>
-                    <a href="www.youtube.com/@h4mzam" target="_blank">[ YOUTUBE ]</a>
-                    <a href="https://www.tiktok.com/@sigmachicken24" target="_blank">[ TIKTOK ]</a>
-                </div>
-                
-                <div style="border-top: 1px dashed #444; margin-top: 30px; padding-top: 15px; font-size: 0.8rem; color: #666; line-height: 1.4;">
-                    <p>VISITOR COUNT: 0000421 (manipulated)</p>
-                    <p>.</p>
-                </div>
+        <!-- RIGHT COLUMN: LINKS & PROFILE -->
+        <div class="section-box">
+            <h2 class="section-title">Socials & Hubs</h2>
+            <p>Stream / Follow / Contact:</p>
+            
+            <div class="links-container">
+                <!-- Clean, predictable button blocks -->
+                <a href="https://open.spotify.com/artist/1eQCOV4rJCSPWRJTcAGUz0?si=gvk8v5sVRxuG1f2qi5NWmQ" target="_blank">[ SPOTIFY ]</a>
+                <a href="https://www.youtube.com" target="_blank">[ YOUTUBE ]</a>
+                <a href="https://www.tiktok.com" target="_blank">[ TIKTOK ]</a>
+                <a href="https://x.com/fazli_hamza" target="_blank">[ X / TWITTER ]</a>
+            </div>
+
+            <div class="stats-footer">
+                <p style="margin: 0;">thanks for listening (:</p>
             </div>
         </div>
 
     </div>
-
-    <marquee scrollamount="13">+++ h4mzam holy shit +++ follow my socials and my spotify +++ hyp hyp hyp +++ lets get famous?? +++</marquee>
-
-    <!-- h4mzam quiz  -->
-    <script>
-        let currentStepId = '';
-        let nextStepId = '';
-
-        function scrollToQuiz() {
-            document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Evaluates answers instantly without restarting the full quiz loop
-        function handleAnswer(current, next, isCorrect) {
-            currentStepId = current;
-            nextStepId = next;
-            
-            // Hide the active question element
-            document.getElementById(current).style.display = 'none';
-            
-            if (isCorrect) {
-                // Advance seamlessly to the next block
-                document.getElementById(next).style.display = 'block';
-            } else {
-                // Send them directly to the error screen
-                document.getElementById('quiz-error').style.display = 'block';
-            }
-        }
-
-        // Pulls them right back to the exact question they missed
-        function retryQuestion() {
-            document.getElementById('quiz-error').style.display = 'none';
-            document.getElementById(currentStepId).style.display = 'block';
-        }
-
-        // Resets the terminal grid back to full initialization
-        function resetQuiz() {
-            document.getElementById('quiz-result').style.display = 'none';
-            document.getElementById('q1').style.display = 'block';
-            currentStepId = '';
-            nextStepId = '';
-        }
-    </script>
 
 </body>
 </html>
